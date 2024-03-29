@@ -35,14 +35,12 @@ app.use((req, res, next) => {
 });
 // http://localhost:3000 => backend,frontend
 
-if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
   // react app
   app.get("/*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
   });
-}
 
 server.listen(PORT, () => {
   console.log("listening on 3000");
