@@ -2,7 +2,7 @@ import io from "socket.io-client";
 import { setOnlineUsers, setSocket } from "../redux/socketio";
 
 const setupSocket = (userId, dispatch) => {
-  const socket = io("http://localhost:3000/", {
+  const socket = io("/", {
     query: {
       userId: userId,
     },

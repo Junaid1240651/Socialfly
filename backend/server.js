@@ -26,15 +26,21 @@ app.use(cookieParser());
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/messages", messageRoutes);
-
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "font-src 'self' https://fonts.gstatic.com"
+  );
+  next();
+});
 // http://localhost:3000 => backend,frontend
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
   // react app
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  app.get("/*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
   });
 }
 
