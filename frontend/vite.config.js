@@ -6,12 +6,5 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3001,
-    proxy: {
-      "/api": {
-        target: "https://socialfly-two.vercel.app",
-        changeOrigin: true,
-        secure: true,
-      },
-    },
   },
 });
