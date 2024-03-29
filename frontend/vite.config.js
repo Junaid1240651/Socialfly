@@ -10,7 +10,7 @@ export default defineConfig({
       "/api": {
         target: "https://socialfly-two.vercel.app",
         changeOrigin: true,
-        secure: false,
+        secure: true,
       },
     },
   },
