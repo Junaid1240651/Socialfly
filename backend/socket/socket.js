@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://socialflyapp.vercel.app",
+    origin: "https://socialfly-two.vercel.app",
     methods: ["GET", "POST"],
   },
 });
