@@ -43,7 +43,7 @@ const createPost = async (req, res) => {
 const getPost = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id);
+
     const post = await Post.findById(id);
     if (!post) {
       return res.status(404).json({ error: "Post not found" });
@@ -81,7 +81,7 @@ const deletePost = async (req, res) => {
 const likeUnlikePost = async (req, res) => {
   try {
     const { id: postId } = req.params;
-    console.log(postId);
+
     const userId = req.user._id;
     const post = await Post.findById(postId);
 
@@ -131,12 +131,12 @@ const getFeedPosts = async (req, res) => {
   try {
     const userId = req.user._id;
     const user = await User.findById(userId);
-    console.log(user);
+
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
     const following = user.following;
-    console.log(following);
+
     const feedPosts = await Post.find({ postedBy: { $in: following } }).sort({
       createdAt: -1,
     });
@@ -149,7 +149,6 @@ const getFeedPosts = async (req, res) => {
 const getUserPosts = async (req, res) => {
   const { userName } = req.params;
 
-  console.log(userName);
   try {
     const user = await User.findOne({ userName });
     if (!user) {
@@ -159,7 +158,7 @@ const getUserPosts = async (req, res) => {
     const posts = await Post.find({ postedBy: user._id }).sort({
       createdAt: -1,
     });
-    console.log(posts);
+
     res.status(200).json(posts);
   } catch (error) {
     res.status(500).json({ error: error.message });

@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.11.0",
     "@reduxjs/toolkit": "^2.2.2",
     "axios": "^1.6.8",
+    "backend": "file:..",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.0.14",
     "random-avatar-generator": "^2.0.0",

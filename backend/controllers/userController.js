@@ -170,7 +170,7 @@ const updateUser = async (req, res) => {
 const getUserProfile = async (req, res) => {
   try {
     const { query } = req.params;
-    console.log(query);
+
     let user;
     if (mongoose.Types.ObjectId.isValid(query)) {
       user = await User.findOne({ _id: query })
