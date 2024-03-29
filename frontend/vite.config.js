@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3001,
     proxy: {
       "/api": {
-        target: "https://socialfly-two.vercel.app", // Update with your backend server URL after deployment
+        target: "https://socialflyapp.vercel.app", // Update with your backend server URL after deployment
         changeOrigin: true,
         secure: false,
       },
