@@ -8,10 +8,14 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: [
+      "https://socialfly-two.vercel.app",
+      "https://socialflyapp.vercel.app"
+    ],
     methods: ["GET", "POST"],
   },
 });
+
 
 
 const getRecipientSocketId = (recipientId) => {
