@@ -46,7 +46,7 @@ const SignUp = () => {
       const avatar = generator.generateRandomAvatar();
       inputs.profilePic = avatar;
 
-      const user = await axios.post("https://socialfly-two.vercel.app/api/users/signup", { inputs });
+      const user = await axios.post("/api/users/signup", { inputs });
       showToast("Success", user.data.message, "success");
       dispatch(setUserInfo(user.data));
     } catch (error) {
